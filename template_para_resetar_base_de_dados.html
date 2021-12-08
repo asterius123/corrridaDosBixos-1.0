@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Resetar Firebase</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <script src="p5.play.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+
+    <script>
+	  //Adicione aqui a configuração da sua base de dados
+      const firebaseConfig = {
+    apiKey: "AIzaSyCNPeXsRTK7g8fL51AEL5kRJxOR9HQDiCk",
+    authDomain: "projeto-corrida.firebaseapp.com",
+    databaseURL:"htts://projeto-corrida-default-rtdb.firebaseio.com",
+    projectId: "projeto-corrida",
+    storageBucket: "projeto-corrida.appspot.com",
+    messagingSenderId: "935215293236",
+    appId: "1:935215293236:web:31edd1ef8f94e5d4463b61"
+  };
+
+
+	  firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <style>
+      h1{
+        color: rgb(255, 0, 34);
+        text-align: center;
+      }
+
+      h4{
+        color: rgb(4, 4, 22);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var database;
+
+      function setup(){
+        database = firebase.database();
+        clearDatabase();
+      }
+
+      function clearDatabase(){
+        database.ref('/').set(
+		{
+  "estadojogo" : 0,
+  "jogadores" : 0,
+  "todosJogadores" : {
+    "jogador1" : {
+      "distancia" : 0,
+      "nome" : ""
+    },
+    "jogador2" : {
+      "distancia" : 0,
+      "nome" : ""
+    },
+    "jogador3" : {
+      "distancia" : 0,
+      "nome" : ""
+    },
+    "jogador4" : {
+      "distancia" : 0,
+      "nome" : ""
+    }
+  }
+}
+
+	  );
+        createElement('h1').html("Seu banco de dados foi resetado!");
+        var a = document.createElement('a'); 
+        var link = document.createTextNode("seu banco de dados")
+        a.appendChild(link); 
+        a.title = firebaseConfig.databaseURL; 
+        a.href = firebaseConfig.databaseURL; 
+        document.body.appendChild(a); 
+		createElement('h4').html(firebaseConfig.projectId);
+      }
+    </script>
+  </body>
+</html>
