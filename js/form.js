@@ -22,6 +22,7 @@ class Form {
     });
     this.botao.mousePressed(()=>{
       jogador.nome = this.entrada.value();
+      titulo.hide();
       this.entrada.hide();
       this.botao.hide();
       this.mensagem.html("ola "+ jogador.nome);

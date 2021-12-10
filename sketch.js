@@ -15,7 +15,7 @@ function preload() {
   mg3 = loadImage("sprite/leao.png");
   mg4 = loadImage("sprite/lobo.png");
   seta = loadImage("sprite/up1.png");
-  pista = loadImage("sprite/track.jpg");
+  pista = loadImage("sprite/track2.png");
 
 }
 function setup() {
